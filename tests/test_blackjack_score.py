@@ -44,14 +44,20 @@ def test_returns_invalid_for_list_length_greater_than_5():
   assert score == "Invalid Cards"
   
 
-@pytest.mark.skip(reason="no way of currently testing this")
+#@pytest.mark.skip(reason="no way of currently testing this")
 def test_returns_bust_for_scores_over_21():
-  pass
+  hand = [5, 'Ace', 'Queen']
+  score = blackjack_score(hand)
+  assert score == 'Bust'
 
-@pytest.mark.skip(reason="no way of currently testing this")
+#@pytest.mark.skip(reason="no way of currently testing this")
 def test_returns_12_for_ace_ace_king():
-  pass
+  hand = ['Ace', 'Ace', 'Queen']
+  score = blackjack_score(hand)
+  assert score == 12
 
-@pytest.mark.skip(reason="logic not yet implemented")
+#@pytest.mark.skip(reason="logic not yet implemented")
 def test_returns_14_for_ace_ace_ace_ace():
-    pass
+  hand = ['Ace', 'Ace', 'Ace', 'Ace']
+  score = blackjack_score(hand)
+  assert score == 14

@@ -9,14 +9,23 @@ def blackjack_score(hand):
      
     if not all(card in VALID_CARDS for card in hand):
         return "Invalid Cards"
+    
     score = 0
+    ace_count = 0
 
     for card in hand:
         if isinstance(card, int):
             score += card
         elif card in facecard_value:
+            if card == "Ace":
+                ace_count += 1
             score += facecard_value[card]
-        
+     
+    while score > 21 and ace_count > 0:
+        score -= 10
+        ace_count -=1
+
+    
     if score > 21:
         return "Bust"
 
